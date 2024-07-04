@@ -6,6 +6,7 @@ import {
   addProduct,
   updateProduct,
 } from "../actions/productActions";
+import './ProductForm.css';
 
 const ProductForm = () => {
   const [name, setName] = useState("");
@@ -58,17 +59,19 @@ const ProductForm = () => {
     history("/");
   };
 
-  if (!productToEdit && id) {
+  if (!productToEdit && isEditMode) {
     return <p>Loading product...</p>;
   }
 
   return (
-    <div>
-      <h1>{isEditMode ? "Edit Product" : "Add Product"}</h1>
+    <div className="container-form">
+<div className="form-container">
+      <h1 className="form-title">{isEditMode ? "Edit Product" : "Add Product"}</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Name:</label>
+          <label className="form-label">Name:</label>
           <input
+          className="form-input"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -76,8 +79,9 @@ const ProductForm = () => {
           />
         </div>
         <div>
-          <label>Price:</label>
+          <label className="form-label">Price:</label>
           <input
+          className="form-input"
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
@@ -85,18 +89,21 @@ const ProductForm = () => {
           />
         </div>
         <div>
-          <label>Description:</label>
+          <label className="form-label">Description:</label>
           <textarea
+          className="form-textarea"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
-        <button type="submit">
+        <button type="submit" className="form-button">
           {isEditMode ? "Update Product" : "Add Product"}
         </button>
       </form>
     </div>
+    </div>
+    
   );
 };
 

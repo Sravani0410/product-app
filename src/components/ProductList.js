@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchProducts } from '../actions/productActions';
 import './ProductList.css';
+// import image from "../../public/image.jpg"
 
 const ProductList = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const ProductList = () => {
   const error = useSelector(state => state.products.error);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(2);
+  const [productsPerPage] = useState(4);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -38,7 +39,7 @@ const ProductList = () => {
   for (let i = 1; i <= Math.ceil(filteredProducts.length / productsPerPage); i++) {
     pageNumbers.push(i);
   }
-
+console.log("currentProducts",currentProducts)
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -56,17 +57,28 @@ const ProductList = () => {
           />
         </div>
       </div>
-      <ul className='product-list'>
+      <div className='product-container'>
+        <div className='product-list-container'>
+        <ul className='product-list'>
         {currentProducts.map(product => (
           <li key={product.id} className='product-item'>
-            <h2>{product.name}</h2>
-            <p>Price: ${product.price}</p>
-            <p>{product.description}</p>
-            <Link to={`/product/${product.id}`}>View Details</Link>
-            <Link to={`/edit/${product.id}`}>Edit</Link>
+            <img className='product-image' src="./image.jpg" alt="dummy-image" />
+            <div className='product-details'>
+            <h2 className='product-name'>{product.name}</h2>
+            </div>
+            <p className='product-price'>Price: ${product.price}</p>
+            <p className='product-description'>{product.description}</p>
+            <div className='product-links'>
+            <Link to={`/product/${product.id}`} className='view-details'>View Details</Link>
+            <Link to={`/edit/${product.id}`} className='edit'>Edit</Link>
+            </div>
+            
           </li>
         ))}
       </ul>
+        </div>
+      </div>
+      
       <div>
         {pageNumbers.map(number => (
           <button key={number} onClick={() => handlePageChange(number)}>

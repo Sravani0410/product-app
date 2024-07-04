@@ -7,7 +7,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { selectedProduct, loading, error } = useSelector(state => state.products);
-
+console.log("selectedProduct",selectedProduct)
   useEffect(() => {
     dispatch(selectProduct(parseInt(id)));
 }, [dispatch, id]);
