@@ -23,6 +23,7 @@ export const selectProduct = id => async dispatch => {
 export const addProduct = product => async dispatch => {
   try {
     const response = await axios.post('http://localhost:5000/products', product);
+    window.location.reload();
     dispatch({ type: 'ADD_PRODUCT', payload: response.data });
   } catch (error) {
     console.error(error);
@@ -32,6 +33,7 @@ export const addProduct = product => async dispatch => {
 export const updateProduct = product => async dispatch => {
   try {
     const response = await axios.put(`http://localhost:5000/products/${product.id}`, product);
+    window.location.reload();
     dispatch({ type: 'UPDATE_PRODUCT', payload: response.data });
   } catch (error) {
     console.error(error);

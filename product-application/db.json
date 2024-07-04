@@ -9,7 +9,7 @@
     {
       "id": "2",
       "name": "Product 2",
-      "price": 20,
+      "price": "200000",
       "description": "Description 2"
     },
     {

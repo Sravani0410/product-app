@@ -1,20 +1,19 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
 import ProductForm from './components/ProductForm';
 
-const App = () => {
+function App() {
   return (
-    <div className='App'>
+    <Router>
       <Routes>
         <Route path="/" element={<ProductList />} />
-        <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/add" element={<ProductForm />} />
         <Route path="/edit/:id" element={<ProductForm />} />
       </Routes>
-    </div>
+    </Router>
   );
-};
+}
 
 export default App;

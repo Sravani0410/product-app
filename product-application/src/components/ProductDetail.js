@@ -18,6 +18,7 @@ const ProductDetail = () => {
 
   return (
     <div>
+      <h1>View Details Page</h1>
       <h1>{selectedProduct.name}</h1>
       <p>{selectedProduct.price}</p>
       <p>{selectedProduct.description}</p>

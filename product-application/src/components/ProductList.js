@@ -10,6 +10,8 @@ const ProductList = () => {
   const loading = useSelector(state => state.products.loading);
   const error = useSelector(state => state.products.error);
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(2);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -17,11 +19,25 @@ const ProductList = () => {
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
+    setCurrentPage(1);
+  };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
   const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(filteredProducts.length / productsPerPage); i++) {
+    pageNumbers.push(i);
+  }
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -41,7 +57,7 @@ const ProductList = () => {
         </div>
       </div>
       <ul className='product-list'>
-        {filteredProducts.map(product => (
+        {currentProducts.map(product => (
           <li key={product.id} className='product-item'>
             <h2>{product.name}</h2>
             <p>Price: ${product.price}</p>
@@ -51,7 +67,13 @@ const ProductList = () => {
           </li>
         ))}
       </ul>
-      
+      <div>
+        {pageNumbers.map(number => (
+          <button key={number} onClick={() => handlePageChange(number)}>
+            {number}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
