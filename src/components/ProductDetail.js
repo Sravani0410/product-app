@@ -25,12 +25,12 @@ if (loading) {
   if (!selectedProduct) return <div>No Product Found</div>;
 
   return (
-    <div>
+    <div className="product-detail-container">
       <h1>View Details Page</h1>
       <h1>{selectedProduct.name}</h1>
       <p>{selectedProduct.price}</p>
       <p>{selectedProduct.description}</p>
-      <Link to="/">Back to List</Link>
+      <Link to="/" className="back-link">Back to List</Link>
     </div>
   );
 };

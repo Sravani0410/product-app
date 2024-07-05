@@ -61,7 +61,7 @@ const ProductList = () => {
       <div className="product-list-header">
         <h1>Product List</h1>
         <div className="product-list-header-links">
-          <Link to="/add">Add New Product</Link>
+          <Link to="/add" className="add-link">Add New Product</Link>
           <input
             type="text"
             placeholder="Search products..."
@@ -99,9 +99,13 @@ const ProductList = () => {
         </div>
       </div>
 
-      <div>
+      <div className="pagination-container">
         {pageNumbers.map((number) => (
-          <button key={number} onClick={() => handlePageChange(number)}>
+          <button
+            key={number}
+            className="pagination-button"
+            onClick={() => handlePageChange(number)}
+          >
             {number}
           </button>
         ))}
