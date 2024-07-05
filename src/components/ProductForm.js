@@ -15,7 +15,7 @@ const ProductForm = () => {
   const [description, setDescription] = useState("");
   const [isEditMode, setIsEditMode] = useState(false);
   const dispatch = useDispatch();
-  const history = useNavigate();
+  const navigate = useNavigate();
   const { id } = useParams();
   const productToEdit = useSelector((state) => state.products.selectedProduct);
 
@@ -57,7 +57,7 @@ const ProductForm = () => {
       // window.location.reload();
       dispatch(addProduct(product));
     }
-    history("/");
+    navigate("/");
   };
 
   if (!productToEdit && isEditMode) {
