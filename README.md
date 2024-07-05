@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# Product App:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+Create a small web application that displays a list of products and allows users to view details of individual products. The application should use React, Redux, React Router, and Axios for API calls. API data can be mocked using JSON files or a mock server.
 
-## Available Scripts
+## Requirements:
+   Data Mocking
+    •	use JSON files to serve the product data.
+    •	Use Axios for making API calls to fetch the product data.
 
-In the project directory, you can run:
+   Create product
+     •	Create new product (Can hold new product in memory if using Json file for read list).
 
-### `npm start`
+   Product List Page
+     •	Display a list of products fetched from the mock API.
+     •	Each product should display at least the following information: product name, price, and a brief   description.
+     •	Include a "View Details" link for each product that navigates to the product detail page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   Product Detail Page
+     •	When a user clicks on "View Details", navigate to a product detail page.
+     •	Display detailed information about the selected product: product name, price, description.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+   Edit and Save product
+     •	Data should be update using redux store and updated in main page.
 
-### `npm test`
+   Redux Store
+     •	Use Redux to manage the state of the application.
+     •	Store the list of products and the details of the selected product in the Redux store.
+     •	Use Redux actions and reducers to handle state changes.
+   
+   API Calls with Axios
+     •  Use Axios to fetch data from the mock API.
+     •	Handle loading states and errors appropriately.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   Styling
+     • 	Apply basic styling to make the application visually appealing.
+     •	Use CSS or a CSS-in-JS solution of your choice.
 
-### `npm run build`
+   Bonus Points:
+     •	Implement a search functionality to filter products on the product list page.
+     •	Add pagination to the product list if there are many products.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    
+## Project Type
+Frontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deployed App
+Frontend: [Live Demo](https://product-app-swart.vercel.app/)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Features
+**CSS Implementation:** Not using any library
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Responsive Layout:** The layout is optimized for both mobile and desktop views, ensuring a seamless user experience across devices.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Feature Implementation:** 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Product App:
+   - The application features a responsive and visually appealing Navbar with add a product. The product list is displayed on the home page and Search. 
+   - When the user clicks on "Add Product", a form is displayed to fill in the product details (name, price, description). After submitting the form, the product is successfully in JSON-server added and the user is redirected back to the home page. The updated product list is displayed.
+   - If the user wants to edit a product, they can click on the "Edit" button. The edit form is displayed, allowing the user to modify the product details. After submitting the form, the product is successfully updated. The user is redirected back to the home page, and the updated product list is displayed.
+   - If the user wants to view a single product, they can click on the "View Detail" button. The view details are displayed.
 
-## Learn More
+2.	Implement a search functionality to filter products on the product list page.
+3.	Add pagination to the product list if there are many products.
+4.  Deployed the JSON-server using the render.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    
+## Design Decisions or Assumptions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**CSS Selection:** Implement the css without using any libraries
 
-### Code Splitting
+## Installation & Getting Started
+To run the project locally, follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Clone the repository
 
-### Analyzing the Bundle Size
+    git clone https://github.com/Sravani0410/product-app.git
+    
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Install dependencies
+ 
+   Frontend : npm install 
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Start the application
 
-### Advanced Configuration
+   Frontend:npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Usage
 
-### Deployment
+![Loading](screenshots/loading.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![Home Page](screenshots/home-page.png)
 
-### `npm run build` fails to minify
+![Add Product Page](screenshots/add-product.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Edit Product Page](screenshots/edit-product.png)
+
+![View Details Page](screenshots/view-details.png)
+
+![Search and Pagination](screenshots/search-with-pagination.png)
+
+
+## Technology Stack
+
+**React.js:** React. js, a frontend-focused JS library used mainly for building single-page and multi-page interfaces, is one of the most popular programming technologies worldwide, and the number of companies reaching out to it proves its solid position.
+
+**JSON-Server:** To store the data in json-server to designed for developing modern applications using render to deploy to interact with frontend.
+
+**Deployment:** 
+   Frontend :  vercel
+   JSON-Server: Render
+---
