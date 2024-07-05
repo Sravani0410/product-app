@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { selectProduct } from '../actions/productActions';
+import './ProductDetail.css';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -12,7 +13,14 @@ console.log("selectedProduct",selectedProduct)
     dispatch(selectProduct(parseInt(id)));
 }, [dispatch, id]);
 
-  if (loading) return <div>Loading...</div>;
+if (loading) {
+  return (
+    <div className="loading-container">
+      <div className="spinner"></div>
+      <div className="loading-text">Loading...</div>
+    </div>
+  );
+}
   if (error) return <div>Error: {error}</div>;
   if (!selectedProduct) return <div>No Product Found</div>;
 
