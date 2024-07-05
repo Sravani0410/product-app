@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://localhost:5000/products';
+const API_URL = 'https://product-data-json-server.onrender.com/products';
 
 export const fetchProducts = () => async (dispatch) => {
   dispatch({ type: 'FETCH_PRODUCTS_REQUEST' });
