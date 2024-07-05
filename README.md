@@ -48,6 +48,10 @@ Frontend
 ## Deployed App
 Frontend: [Live Demo](https://product-app-swart.vercel.app/)
 
+## Video Walkthrough of the Project
+
+[Video Walkthrough](https://drive.google.com/file/d/1AdU-CQ0SeYWjJo9bmkNwsfKaWK9_-r_2/view?usp=sharing)
+
 
 ## Features
 **CSS Implementation:** Not using any library
